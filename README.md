@@ -10,7 +10,6 @@ A minimal boilerplate of [koa v2](https://github.com/koajs/koa/issues/533).
 Both ways you can start:
 
     fork this repo & git clone the repo
-    npm install koa2-boilerplate
 
 
 ## Command
