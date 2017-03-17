@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (sequelize, DataTypes) {
-  const Cosita = sequelize.define('Cosita', {
+  const Producto = sequelize.define('Producto', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true
@@ -17,30 +17,21 @@ exports.default = function (sequelize, DataTypes) {
         notEmpty: true
       }
     },
-    descripcion: {
-      type: DataTypes.STRING,
+    contenido: {
+      type: DataTypes.INTEGER,
       validate: {
-        notNull: true,
-        notEmpty: true
-      }
-    },
-    estado: {
-      type: DataTypes.STRING,
-      validate: {
-        notNull: true,
-        notEmpty: true
+        min: 1
       }
     }
   }, {
-    tableName: 'Cosita',
+    tableName: 'Producto',
     classMethods: {
       associate: function associate(models) {
-        Cosita.hasMany(models.Producto, { as: 'Productos' }, { foreignKey: 'cosita' });
+        Producto.hasMany(models.Compra, { as: 'Compras' }, { foreignKey: 'producto' });
       }
     }
   });
-
-  return Cosita;
+  return Producto;
 };
 
 ;
