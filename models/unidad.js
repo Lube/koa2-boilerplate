@@ -8,13 +8,24 @@ exports.default = function (sequelize, DataTypes) {
   const Unidad = sequelize.define('Unidad', {
     id: {
       type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true
     },
     nombre: {
       type: DataTypes.STRING,
+      allowNull: {
+          args: false,
+          msg: 'La unidad debe tener un nombre.'
+      },
+      unique: {
+        args: true,
+        msg: 'Ya existe una unidad con ese nombre.'
+      },
       validate: {
-        notNull: true,
-        notEmpty: true
+        notEmpty: {
+          args: true,
+          msg: 'La unidad debe tener un nombre.'
+        }
       }
     }
   }, {

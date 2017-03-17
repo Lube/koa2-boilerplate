@@ -8,6 +8,7 @@ exports.default = function (sequelize, DataTypes) {
   const Changuito = sequelize.define('Changuito', {
     id: {
       type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true
     },
     fecha: {

@@ -8,13 +8,21 @@ exports.default = function (sequelize, DataTypes) {
   const Categoria = sequelize.define('Categoria', {
     id: {
       type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true
     },
     nombre: {
       type: DataTypes.STRING,
+      allowNull: false,
+      unique: {
+          args: true,
+          msg: 'Ya existe una categoría con ese nombre.'
+      },
       validate: {
-        notNull: true,
-        notEmpty: true
+        notEmpty: {
+            args: true,
+            msg: 'La categoría debe tener un nombre.'
+        }
       }
     }
   }, {

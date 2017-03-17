@@ -8,12 +8,14 @@ exports.default = function (sequelize, DataTypes) {
   const Unidad = sequelize.define('Unidad', {
     id: {
       type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true
     },
     nombre: {
       type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
       validate: {
-        notNull: true,
         notEmpty: true
       }
     }

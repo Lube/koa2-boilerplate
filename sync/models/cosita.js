@@ -8,26 +8,28 @@ exports.default = function (sequelize, DataTypes) {
   const Cosita = sequelize.define('Cosita', {
     id: {
       type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true
     },
     nombre: {
       type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
       validate: {
-        notNull: true,
         notEmpty: true
       }
     },
     descripcion: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        notNull: true,
         notEmpty: true
       }
     },
     estado: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        notNull: true,
         notEmpty: true
       }
     }

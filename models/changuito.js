@@ -8,18 +8,25 @@ exports.default = function (sequelize, DataTypes) {
   const Changuito = sequelize.define('Changuito', {
     id: {
       type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true
     },
     fecha: {
       type: DataTypes.DATE,
       validate: {
-        isDate: true
+          isDate:  {
+            args: true,
+            msg: 'La fecha no es válida.'
+        }
       }
     },
     total: {
       type: DataTypes.DECIMAL(10, 2),
       validate: {
-        isDecimal: true
+        isDecimal:  {
+            args: true,
+            msg: 'El total no es válido.'
+        }
       }
     }
   }, {

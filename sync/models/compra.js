@@ -8,6 +8,7 @@ exports.default = function (sequelize, DataTypes) {
   const Compra = sequelize.define('Compra', {
     id: {
       type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true
     },
     precio: {

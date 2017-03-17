@@ -6,7 +6,7 @@
   "scripts": {
     "test": "make test",
     "start": "./node_modules/.bin/nodemon",
-    "sync": "node ./schema.js"
+    "sync": "babel models --out-dir sync/models && node sync/sync.js "
   },
   "repository": {
     "type": "git",
