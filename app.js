@@ -28,6 +28,7 @@ app.use(passport.session())
 
 app.use(authRouter.routes())
 
+app.use(api.routes());
 app.use(function(ctx, next) {
   if (ctx.isAuthenticated()) {
     return next()
@@ -36,5 +37,4 @@ app.use(function(ctx, next) {
   }
 })
 
-app.use(api.routes());
-app.listen(3000);
+app.listen(8000);

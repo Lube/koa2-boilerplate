@@ -14,10 +14,6 @@ exports.default = function (sequelize, DataTypes) {
     nombre: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: {
-        args: true,
-        msg: 'Ya existe una cosita con este nombre.'
-      },
       validate: {
         notEmpty: {
           args: true,
@@ -43,12 +39,13 @@ exports.default = function (sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'Cosita',
+    tableName: 'cosita',
     classMethods: {
       associate: function associate(models) {
-        Cosita.hasMany(models.Producto, { as: 'Productos' }, { foreignKey: 'cosita' });
+        Cosita.hasMany(models.Producto, { as: 'productos', foreignKey: 'cosita' });
       }
-    }
+    },
+    paranoid: true
   });
 
   return Cosita;

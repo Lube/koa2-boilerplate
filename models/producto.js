@@ -17,10 +17,6 @@ exports.default = function (sequelize, DataTypes) {
           args: false,
           msg: 'El producto debe tener un nombre.'
       },
-      unique: {
-          args: true,
-          msg: 'Ya existe un producto con este nombre.'
-      },
       validate: {
         notEmpty: {
           args: true,
@@ -42,12 +38,14 @@ exports.default = function (sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'Producto',
+    tableName: 'producto',
     classMethods: {
       associate: function associate(models) {
-        Producto.hasMany(models.Compra, { as: 'Compras' }, { foreignKey: 'producto' });
+        Producto.hasMany(models.Compra, { as: 'compras', foreignKey: 'producto' });
+        Producto.hasMany(models.Avistamiento, { as: 'avistamientos', foreignKey: 'producto' });
       }
-    }
+    },
+    paranoid: true
   });
   return Producto;
 };

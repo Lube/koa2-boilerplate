@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (sequelize, DataTypes) {
-  const Unidad = sequelize.define('Unidad', {
+  const Lugar = sequelize.define('Lugar', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -13,28 +13,28 @@ exports.default = function (sequelize, DataTypes) {
     },
     nombre: {
       type: DataTypes.STRING,
-      allowNull: {
-          args: false,
-          msg: 'La unidad debe tener un nombre.'
-      },
+      allowNull: false,
       validate: {
         notEmpty: {
           args: true,
-          msg: 'La unidad debe tener un nombre.'
+          msg: 'El lugar debe tener un nombre.'
         }
       }
+    },
+    ubicacion: {
+      type: DataTypes.GEOMETRY,
+      allowNull: false
     }
   }, {
-    tableName: 'unidad',
+    tableName: 'lugar',
     classMethods: {
       associate: function associate(models) {
-        Unidad.hasMany(models.Producto, { as: 'productos', foreignKey: 'unidad' });
+        Lugar.hasMany(models.Avistamiento, { as: 'avistamientos', foreignKey: 'lugar' });
+        Lugar.hasMany(models.Changuito, { as: 'changuitos', foreignKey: 'lugar' });
       }
     },
     paranoid: true
   });
 
-  return Unidad;
+  return Lugar;
 };
-
-;

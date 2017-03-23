@@ -13,19 +13,25 @@ exports.default = function (sequelize, DataTypes) {
     },
     nombre: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
+      allowNull: {
+        args: false,
+        msg: 'La unidad debe tener un nombre.'
+      },
       validate: {
-        notEmpty: true
+        notEmpty: {
+          args: true,
+          msg: 'La unidad debe tener un nombre.'
+        }
       }
     }
   }, {
-    tableName: 'Unidad',
+    tableName: 'unidad',
     classMethods: {
       associate: function associate(models) {
-        Unidad.hasMany(models.Producto, { as: 'Productos' }, { foreignKey: 'unidad' });
+        Unidad.hasMany(models.Producto, { as: 'productos', foreignKey: 'unidad' });
       }
-    }
+    },
+    paranoid: true
   });
 
   return Unidad;

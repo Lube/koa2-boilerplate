@@ -14,32 +14,38 @@ exports.default = function (sequelize, DataTypes) {
     nombre: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
-        notEmpty: true
+        notEmpty: {
+          args: true,
+          msg: 'La cosita debe tener un nombre.'
+        }
       }
     },
     descripcion: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true
-      }
+      allowNull: true
     },
     estado: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: {
+        args: false,
+        msg: 'La cosita debe tener un estado.'
+      },
       validate: {
-        notEmpty: true
+        notEmpty: {
+          args: true,
+          msg: 'La cosita debe tener un estado.'
+        }
       }
     }
   }, {
-    tableName: 'Cosita',
+    tableName: 'cosita',
     classMethods: {
       associate: function associate(models) {
-        Cosita.hasMany(models.Producto, { as: 'Productos' }, { foreignKey: 'cosita' });
+        Cosita.hasMany(models.Producto, { as: 'productos', foreignKey: 'cosita' });
       }
-    }
+    },
+    paranoid: true
   });
 
   return Cosita;

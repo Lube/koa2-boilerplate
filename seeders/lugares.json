@@ -1,0 +1,18 @@
+[
+    {
+        "model": "Lugar",
+        "data": {
+            "id": 1,
+            "nombre": "Jumbo - Acoyte",
+            "ubicacion":  { "type": "Point", "coordinates": [39.807222,-76.984722]}
+        }
+    },
+    {
+        "model": "Lugar",
+        "data": {
+            "id": 2,
+            "nombre": "El puente - Corrientes",
+            "ubicacion":  { "type": "Point", "coordinates": [39.807222,-76.984722]}
+        }
+    }
+]

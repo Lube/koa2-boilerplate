@@ -14,18 +14,21 @@ exports.default = function (sequelize, DataTypes) {
     nombre: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
-        notEmpty: true
+        notEmpty: {
+          args: true,
+          msg: 'La categoría debe tener un nombre.'
+        }
       }
     }
   }, {
-    tableName: 'Categoria',
+    tableName: 'categoria',
     classMethods: {
       associate: function associate(models) {
-        Categoria.hasMany(models.Cosita, { as: 'Cositas' }, { foreignKey: 'categoria' });
+        Categoria.hasMany(models.Cosita, { as: 'cositas', foreignKey: 'categoria' });
       }
-    }
+    },
+    paranoid: true
   });
 
   return Categoria;

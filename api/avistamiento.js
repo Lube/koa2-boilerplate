@@ -7,13 +7,13 @@ let processError = errorUtils.processError
 const router = new Router();
 
 router
-    .post('/compra/:id', function(ctx, next) {
-        return Models.Compra.findById(ctx.params.id)
-        .then(function(compra) {
-            if (!compra) {
+    .post('/avistamiento/:id', function(ctx, next) {
+        return Models.Avistamiento.findById(ctx.params.id)
+        .then(function(avistamiento) {
+            if (!avistamiento) {
                 ctx.status = 404
             } else {
-                return Models.Compra.update(ctx.request.body, {where: {id: ctx.params.id}})
+                return Models.Avistamiento.update(ctx.request.body, {where: {id: ctx.params.id}})
                 .then(function(actualizadas) {
                     ctx.body = actualizadas
                 })
@@ -24,20 +24,20 @@ router
             ctx.status = 400
         })
     })
-    .post('/compra', function(ctx, next) {
-        return Models.Compra.create(ctx.request.body)
+    .post('/avistamiento', function(ctx, next) {
+        return Models.Avistamiento.create(ctx.request.body)
         .then(function({dataValues}) {
             ctx.body = dataValues
         })
     })
-    .delete('/compra/:id', function(ctx, next) {
-        return Models.Compra.destroy({
+    .delete('/avistamiento/:id', function(ctx, next) {
+        return Models.Avistamiento.destroy({
             where: {
                 id: ctx.params.id
             }
         })
-        .then(function(compra) {
-            ctx.body = compra
+        .then(function(avistamiento) {
+            ctx.body = avistamiento
         })
     })
     

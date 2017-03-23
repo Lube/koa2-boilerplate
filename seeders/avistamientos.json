@@ -1,0 +1,32 @@
+[
+    {
+        "model": "Avistamiento",
+        "data": {
+            "id": 1,
+            "precio": 20.50,
+            "fecha": "2017-02-19 13:14:11",
+            "lugar": 1,
+            "producto": 1
+        }
+    },
+    {
+        "model": "Avistamiento",
+        "data": {
+            "id": 2,
+            "precio": 18.50,
+            "fecha": "2017-02-15 13:14:11",
+            "lugar": 2,
+            "producto": 1
+        }
+    },
+    {
+        "model": "Avistamiento",
+        "data": {
+            "id": 3,
+            "precio": 21.50,
+            "fecha": "2017-02-12 13:14:11",
+            "lugar": 1,
+            "producto": 2
+        }
+    }
+]

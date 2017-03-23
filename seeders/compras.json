@@ -1,0 +1,20 @@
+[
+    {
+        "model": "Compra",
+        "data": {
+            "id": 1,
+            "changuito": 1,
+            "producto": 1,
+            "precio": 10.50
+        }
+    },
+    {
+        "model": "Compra",
+        "data": {
+            "id": 2,
+            "changuito": 1,
+            "producto": 2,
+            "precio": 10.00
+        }
+    }
+]

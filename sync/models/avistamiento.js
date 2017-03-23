@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (sequelize, DataTypes) {
-  const Compra = sequelize.define('Compra', {
+  const Avistamiento = sequelize.define('Avistamiento', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -19,13 +19,20 @@ exports.default = function (sequelize, DataTypes) {
           msg: 'El precio no es válido.'
         }
       }
+    },
+    fecha: {
+      type: DataTypes.DATE,
+      validate: {
+        isDate: {
+          args: true,
+          msg: 'La fecha no es válida.'
+        }
+      }
     }
   }, {
-    tableName: 'compra',
+    tableName: 'avistamiento',
     paranoid: true
   });
 
-  return Compra;
+  return Avistamiento;
 };
-
-;

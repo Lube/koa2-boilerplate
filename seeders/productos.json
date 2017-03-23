@@ -1,0 +1,22 @@
+[
+    {
+        "model": "Producto",
+        "data": {
+            "id": 1,
+            "cosita": 1,
+            "unidad": 2,
+            "contenido": 250,
+            "nombre": "Jabon Dia Mini"
+        }
+    },
+    {
+        "model": "Producto",
+        "data": {
+            "id": 2,
+            "cosita": 1,
+            "unidad": 2,
+            "contenido": 300,
+            "nombre": "Jabon Avon"
+        }
+    }
+]

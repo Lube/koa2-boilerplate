@@ -1,0 +1,34 @@
+[
+    {
+        "model": "Categoria",
+        "data": {
+            "id": 1,
+            "nombre": "Baño"
+        }
+    },
+    {
+        "model": "Categoria",
+        "data": {
+            "id": 2,
+            "nombre": "Cocina"
+        }
+    },
+    {
+        "model": "Categoria",
+        "data": {
+            "nombre": "Hogar"
+        }
+    },
+    {
+        "model": "Categoria",
+        "data": {
+            "nombre": "Bebidas"
+        }
+    },
+    {
+        "model": "Categoria",
+        "data": {
+            "nombre": "Comida"
+        }
+    }
+]

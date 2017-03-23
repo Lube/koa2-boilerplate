@@ -30,12 +30,13 @@ exports.default = function (sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'Changuito',
+    tableName: 'changuito',
     classMethods: {
       associate: function associate(models) {
-        Changuito.hasMany(models.Compra, { as: 'Compras' }, { foreignKey: 'compra' });
+        Changuito.hasMany(models.Compra, { name: 'compras', as: 'compras', foreignKey: 'changuito' });
       }
-    }
+    },
+    paranoid: true
   });
 
   return Changuito;

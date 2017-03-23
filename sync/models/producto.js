@@ -13,25 +13,39 @@ exports.default = function (sequelize, DataTypes) {
     },
     nombre: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
+      allowNull: {
+        args: false,
+        msg: 'El producto debe tener un nombre.'
+      },
       validate: {
-        notEmpty: true
+        notEmpty: {
+          args: true,
+          msg: 'El producto debe tener un nombre.'
+        }
       }
     },
     contenido: {
       type: DataTypes.INTEGER,
+      allowNull: {
+        args: false,
+        msg: 'El producto debe tener un contenido válido.'
+      },
       validate: {
-        min: 1
+        min: {
+          args: 1,
+          msg: 'El producto debe tener un como mínimo 1 unidad de algo.'
+        }
       }
     }
   }, {
-    tableName: 'Producto',
+    tableName: 'producto',
     classMethods: {
       associate: function associate(models) {
-        Producto.hasMany(models.Compra, { as: 'Compras' }, { foreignKey: 'producto' });
+        Producto.hasMany(models.Compra, { as: 'compras', foreignKey: 'producto' });
+        Producto.hasMany(models.Avistamiento, { as: 'avistamientos', foreignKey: 'producto' });
       }
-    }
+    },
+    paranoid: true
   });
   return Producto;
 };

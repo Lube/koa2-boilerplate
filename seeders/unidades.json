@@ -1,0 +1,16 @@
+[
+    {
+        "model": "Unidad",
+        "data": {
+            "id": 2,
+            "nombre": "Gramos"
+        }
+    },
+    {
+        "model": "Unidad",
+        "data": {
+            "id": 1,
+            "nombre": "Litros"
+        }
+    }
+]

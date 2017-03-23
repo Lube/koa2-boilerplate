@@ -14,22 +14,29 @@ exports.default = function (sequelize, DataTypes) {
     fecha: {
       type: DataTypes.DATE,
       validate: {
-        isDate: true
+        isDate: {
+          args: true,
+          msg: 'La fecha no es válida.'
+        }
       }
     },
     total: {
       type: DataTypes.DECIMAL(10, 2),
       validate: {
-        isDecimal: true
+        isDecimal: {
+          args: true,
+          msg: 'El total no es válido.'
+        }
       }
     }
   }, {
-    tableName: 'Changuito',
+    tableName: 'changuito',
     classMethods: {
       associate: function associate(models) {
-        Changuito.hasMany(models.Compra, { as: 'Compras' }, { foreignKey: 'compra' });
+        Changuito.hasMany(models.Compra, { name: 'compras', as: 'compras', foreignKey: 'changuito' });
       }
-    }
+    },
+    paranoid: true
   });
 
   return Changuito;
